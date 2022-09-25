@@ -1,4 +1,6 @@
 import Header from '../../components/Header';
+import MainContainer from '../../components/MainContainer';
+import PostCard from '../../components/PostCard';
 import { PostData } from '../../domain/posts/post';
 import { Container } from './styles';
 
@@ -7,17 +9,23 @@ type HomePageProps = {
 };
 
 export default function HomePage({ posts }: HomePageProps) {
+  console.log(posts);
+
   return (
     <>
       <Header />
-      <Container>
-        {posts.map((post) => (
-          <div key={post.id}>
-            <h1>{post.attributes.title}</h1>
-            <p>{post.attributes.content}</p>
-          </div>
-        ))}
-      </Container>
+      <MainContainer>
+        <Container>
+          {posts.map((post) => (
+            <PostCard
+              key={post.id}
+              cover={post.cover.formats.medium.url}
+              title={post.title}
+              slug={post.slug}
+            />
+          ))}
+        </Container>
+      </MainContainer>
     </>
   );
 }
