@@ -51,12 +51,13 @@ export type PostAttributesFormat = PostCoverFormat & {
   formats: formatstype;
 };
 export type formatstype = {
+  large: FormatsTypeData;
   thumbnail: FormatsTypeData;
   small: FormatsTypeData;
   medium: FormatsTypeData;
 };
 
-export type FormatsTypeData = PostCoverFormat & {
+export type FormatsTypeData = {
   ext: string;
   url: string;
   hash: string;
@@ -64,7 +65,6 @@ export type FormatsTypeData = PostCoverFormat & {
   name: string;
   path: null;
   size: number;
-
   width: number;
   height: number;
 };
