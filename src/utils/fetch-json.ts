@@ -3,5 +3,5 @@ export const fetchJson = async <T>(url: string): Promise<T> => {
   const Jsondata = await rawData.json();
 
   console.log(Jsondata);
-  return Jsondata;
+  return Jsondata.data;
 };
