@@ -9,20 +9,20 @@ export type DynamicPostProps = {
 };
 
 const DynamicPost = ({ post }: DynamicPostProps) => {
-  return <p>{post.title}</p>;
+  return <p>{post.attributes.title}</p>;
 };
 
 export default DynamicPost;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const numberOfPosts = await countAllPosts();
-  const posts = await getAllPosts(`_limit=${numberOfPosts}`);
+  const posts = await getAllPosts(`pagination[pageSize]=${numberOfPosts}`);
 
   return {
     paths: posts.map((post) => {
       return {
         params: {
-          slug: post.slug,
+          slug: post.attributes.slug,
         },
       };
     }),
@@ -31,8 +31,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const posts = await getPost(ctx.params.slug);
+  const posts = await getPost(ctx?.params?.slug as string);
+
   const post = posts.length > 0 ? posts[0] : {};
+  console.log(post);
 
   return {
     props: { post: post },

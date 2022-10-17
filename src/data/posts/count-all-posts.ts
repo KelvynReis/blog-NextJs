@@ -1,8 +1,8 @@
-import { POSTS_URL, URL_WITH_POLULATE } from '../../config/app-config';
-import { fetchJson } from '../../utils/fetch-json';
+import { POSTS_URL } from '../../config/app-config';
+import { fetchJsonTotal } from '../../utils/fetch-json-total';
 
-export const countAllPosts = async (query = ''): Promise<string> => {
-  const url = `${POSTS_URL}/count?${query}&${URL_WITH_POLULATE}`;
-  const numberOfPosts = await fetchJson<string>(url);
+export const countAllPosts = async (): Promise<string> => {
+  const url = `${POSTS_URL}`;
+  const numberOfPosts = await fetchJsonTotal<string>(url);
   return numberOfPosts;
 };

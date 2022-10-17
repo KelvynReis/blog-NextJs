@@ -11,7 +11,7 @@ export default function PostCard({ slug, title, cover }: PostCardProps) {
   return (
     <Container>
       <PostCardCover>
-        <Link href="/posts/[slug]" as={`/posts/${slug}`}>
+        <Link href="/post/[slug]" as={`/post/${slug}`}>
           <a>
             <img src={cover} alt={title} />
           </a>
@@ -19,7 +19,7 @@ export default function PostCard({ slug, title, cover }: PostCardProps) {
       </PostCardCover>
 
       <PostCardHeading>
-        <Link href="/posts/[slug]" as={`/posts/${slug}`}>
+        <Link href="/post/[slug]" as={`/posts/${slug}`}>
           <a>{title}</a>
         </Link>
       </PostCardHeading>
