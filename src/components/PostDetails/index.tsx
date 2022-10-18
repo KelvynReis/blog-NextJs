@@ -3,14 +3,13 @@ import { Container } from './styled';
 
 export type PostDetailsProps = {
   date: string;
-  author: string;
   category: string;
 };
 
-export const PostDetails = ({ author, category, date }: PostDetailsProps) => {
+export const PostDetails = ({ category, date }: PostDetailsProps) => {
   return (
     <Container>
-      Publicado por <Date date={date} />
+      Publicado em <Date date={date} /> | {category}
     </Container>
   );
 };

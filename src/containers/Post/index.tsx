@@ -2,6 +2,7 @@ import Footer from '../../components/Footer';
 import Header from '../../components/Header';
 import { Heading } from '../../components/Heading';
 import MainContainer from '../../components/MainContainer';
+import { PostContainer } from '../../components/PostContainer';
 import { PostCover } from '../../components/PostCover';
 import { PostDetails } from '../../components/PostDetails';
 import { PostData } from '../../domain/posts/post';
@@ -11,8 +12,6 @@ export type PostProps = {
 };
 
 export const Post = ({ post }: PostProps) => {
-  console.log(post.attributes.createdAt);
-
   return (
     <>
       <Header />
@@ -25,12 +24,11 @@ export const Post = ({ post }: PostProps) => {
           alt={post.attributes.title}
         />
         <PostDetails
-          author={post.author}
           category={post.attributes.slug}
           date={post.attributes.createdAt}
         />
 
-        <div dangerouslySetInnerHTML={{ __html: post.attributes.content }} />
+        <PostContainer content={post.attributes.content} />
       </MainContainer>
 
       <Footer />
