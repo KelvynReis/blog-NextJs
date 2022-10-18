@@ -5,13 +5,14 @@ import MainContainer from '../../components/MainContainer';
 import PostCard from '../../components/PostCard';
 import { SITE_NAME } from '../../config/app-config';
 import { PostData } from '../../domain/posts/post';
-import { Container } from './styles';
+import { Container, Category } from './styles';
 
 type HomePageProps = {
   posts: PostData[];
+  category?: string;
 };
 
-export default function HomePage({ posts }: HomePageProps) {
+export default function HomePage({ posts, category }: HomePageProps) {
   return (
     <>
       <Head>
@@ -19,10 +20,10 @@ export default function HomePage({ posts }: HomePageProps) {
         <meta name="description" content="Este é meu blog de tecnologia." />
       </Head>
       <Header />
+      {category && <Category>Categoria: {category}</Category>}
       <MainContainer>
         <Container>
           {posts.map((post) => (
-            // console.log(post.attributes.cover.data.attributes.formats),
             <PostCard
               key={post.id}
               cover={post.attributes.cover.data.attributes.url}

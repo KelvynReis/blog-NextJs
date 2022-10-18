@@ -4,5 +4,5 @@ export const formatDate = (date: string): string => {
   const day = objdate.toLocaleString('default', { day: '2-digit' });
   const year = objdate.toLocaleString('default', { year: 'numeric' });
 
-  return `${day} /${month}/ ${year}`;
+  return `${day}/${month}/${year}`;
 };

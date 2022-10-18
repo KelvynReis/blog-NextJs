@@ -36,7 +36,7 @@ export const Post = ({ post }: PostProps) => {
           alt={post.attributes.title}
         />
         <PostDetails
-          category={post.attributes.slug}
+          category={post.attributes.category.data.attributes.name}
           date={post.attributes.createdAt}
         />
 
