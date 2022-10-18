@@ -5,8 +5,8 @@ export type PostAuthor = {
   name: string;
   created_by: number;
   updated_by: number;
-  created_at: string;
-  updated_at: string;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type PostCategory = {
@@ -14,8 +14,8 @@ export type PostCategory = {
   name: string;
   created_by: number;
   updated_by: number;
-  created_at: string;
-  updated_at: string;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type PostCreatedBy = {
@@ -46,8 +46,8 @@ export type PostAttributesFormat = PostCoverFormat & {
   provider: string;
   created_by: number;
   updated_by: number;
-  created_at: string;
-  updated_at: string;
+  createdAt: string;
+  updatedAt: string;
   formats: formatstype;
 };
 export type formatstype = {
@@ -72,8 +72,8 @@ export type PostAttributes = {
   title: string;
   content: string;
   slug: string;
-  created_at: string;
-  updated_at: string;
+  createdAt: string;
+  updatedAt: string;
   published_at: string;
   cover: postCover;
 };
@@ -95,7 +95,7 @@ export type PostData = {
   category: PostCategory;
   created_by: PostCreatedBy;
   updated_by: PostCreatedBy;
-  created_at: string;
-  updated_at: string;
+  createdAt: string;
+  updatedAt: string;
   attributes: PostAttributes;
 };
